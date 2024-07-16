@@ -12,7 +12,6 @@ export default async function Home() {
       <h2>
         <Link href={`/posts/${post.id}`}>{post.title.rendered}</Link>
       </h2>
-      <p>{post.id}</p>
     </div>
   ))}
 </div>
