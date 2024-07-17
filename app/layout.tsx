@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { Button } from "@/components/ui/button";
+import { TITLE } from "@/config";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +19,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ja">
+      <body className={cn(inter.className,'min-h-dvh')}>
+        <header className="border-b h-16 flex items-center px-6">
+          <Button variant="ghost" asChild>
+            <Link href="/">{TITLE}</Link>
+          </Button>
+        </header>
+        <main className="container py-8">
+          {children}
+        </main>
+        <footer className="border-t sticky top-full h-16 flex items-center px-6">
+          <p>&copy;{TITLE}.</p>
+        </footer>
+      </body>
     </html>
   );
 }
